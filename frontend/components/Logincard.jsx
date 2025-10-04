@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 
-const [selected, setSelected] = useState("student");
+export default function Logincard() {
 
-function ToggleButtons(e) {
-    setSelected(e.target.value);
-}
+  const [selected, setSelected] = useState("student");
 
-export default function LoginCard() {
   return (
     <div className="d-flex align-items-center justify-content-center vh-100 bg-light">
       <div className="card shadow p-4" style={{ width: "22rem" }}>
         <div className="d-flex gap-3 mb-3">
-          <button className={`btn border border-black  w-50 ${selected === "student" ? "btn-primary" : "btn-outline-primary"}`} value="student" onClick={(e)=>ToggleButtons(e)}>Student</button>
-          <button className={`btn border border-black w-50 ${selected === "student" ? "btn-primary" : "btn-outline-primary"}`} value="teacher" onClick={(e)=>ToggleButtons(e)}>Teacher</button>
+          <button className={
+          `btn w-50 ${selected === "student" ? "btn-primary" : "--bs-secondary-color"}`}  
+            onClick={() => setSelected("student")}>Student</button>
+
+          <button className={ 
+            `btn w-50  ${selected === "teacher" ? "btn-primary" :"--bs-secondary-color-rgb"}` } 
+                onClick={() => setSelected("teacher")}>Teacher</button>
+
         </div>
 
         <form>
